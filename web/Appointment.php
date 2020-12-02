@@ -3,7 +3,7 @@ $date = $_POST["input_date"];
 $time = $_POST["input_time"];
 $physthrpst = $_POST["physiotherpst"];
 
- $con = mysqli_connect("localhost","root","","phy","3306");
+ $con = mysqli_connect("sql12.freemysqlhosting.net","sql12379747","VpXKiTA1iu","sql12379747","3306");
 	 if(!$con)
 	 {
 		 die("Cannot connect to DB server");
