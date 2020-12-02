@@ -29,7 +29,7 @@ $sql ="INSERT INTO `email`(`name`, `email`, `message`) VALUES ('".$name."','".$e
 
 mysqli_query($con,$sql);
 		echo "Registered successfully";
-header("Location:physiotherapy1.html");
+header("Location:physiotherapy1.php");
 
 
 
