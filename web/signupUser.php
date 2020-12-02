@@ -5,7 +5,7 @@ $email=$_POST["txtEmail"];
 $pw = $_POST["txtPassword"];
 
 
- $con = mysqli_connect("localhost","root","","phy","3306");
+ $con = mysqli_connect("sql12.freemysqlhosting.net","sql12379747","VpXKiTA1iu","sql12379747","3306");
 	 if(!$con)
 	 {
 		 die("Cannot connect to DB server");
