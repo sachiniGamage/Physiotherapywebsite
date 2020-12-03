@@ -1,3 +1,33 @@
+<?php
+//$date = $_POST['schdl_date'];
+$output = '';
+$con = mysqli_connect("localhost","root","","phy","3306") ;
+if(!$con)
+   {
+     die("Cannot connect to DB server");
+   }
+
+
+if(isset($_POST['schdl_date'])){
+	$search = $_POST['schdl_date'];
+	
+	$query ="SELECT time FROM physioshedule WHERE date = '".$search."'";
+	$result = mysqli_query($con,$query);
+	
+	
+	if(mysqli_num_rows($result) > 0){
+		
+		while($row = mysqli_fetch_array($result)){
+			$time = $row['time'];
+			$output .= '<div> '.$time.' </div>';
+		}
+	}else{
+		$output = 'There was no search reesult';
+	}
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,36 +70,26 @@
 <div>
     
 </div>
-<!--
-	<form method="post" action="viewSchedule.php" align = "center">
+<form method="post" action="Appointment2.php" align = "center">
 		<h4>Available Time</h4>
 		<label>Appointment date:</label>
-		<input type="date" id="schdl_date" name="schdl_date"/>
-		
-		
-		<input type="text" id="Editbox1" name="strt_date" value="<?php 
-																 if(isset($_SESSION['abc'])){echo $_SESSION['abc'];}else{echo "abc";}?>">
-		
-		
+		<input type="text" id="schdl_date" name="schdl_date"/>
+
 		<br>
 		<div align="center" >
 			<td><table width="366" border="0" align="center">
 		<tr align="center">
-		 <td width="167" align="center"><input type="submit" name="btnSubmitAppntmnt" id="btnSubmitAppntmnt" value="Check"  /></td>
+		 <td width="167" align="center">
+			 <input type="submit" value="Check"  /></td>
+			<?php  print("$output"); ?>
 		<br>
 			</tr>
 				</table></td>
 			</div >
 	
 	</form>
--->
 <!--	<h4>time:</h4>-->
-	<?php
-	if(isset($_SESSION["time"])){
-		
-			echo($_SESSION["time"]);
-	}
-	?>
+	
 
 
 	<br>
