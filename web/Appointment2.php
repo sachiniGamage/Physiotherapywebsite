@@ -96,7 +96,7 @@ if(isset($_POST['schdl_date'])){
 	<br>
 	
 	<form method="post" action="Appointment.php" align="center">
-		<h1>APPOINTMENT</h1>
+		<h1>ADD APPOINTMENT</h1>
 		<label>Appointment date:</label>
 		<input type="date" id="input_date" name="input_date"/>
 		<br>
